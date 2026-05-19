@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sobre Mí</title>
+    </head>
+    <body style="font-family: Arial; max-width: 800px; margin: 50px auto;">
+        <h1>Sobre Mí</h1>
+        <p><strong>Nombre:</strong> {{ nombre }}</p>
+        <p><strong>Profesión:</strong> {{ profesion }}</p>
+        <p><strong>Edad:</strong> {{ edad }}</p>
+        <h2>Mis Habilidades:</h2>
+        <ul>
+            {% for habilidad in habilidades %}
+            <li>{{ habilidad }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <a href="/">Inicio</a> |
+        <a href="/posts/">Ver Posts</a>
+    </body>
+</html>

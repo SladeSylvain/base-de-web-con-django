@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Posts</title>
+    </head>
+    <body style="font-family: Arial; max-width: 800px; margin: 50px auto;">
+        <h1>Mis Posts</h1>
+        {% for post in posts %}
+        <div style="border: 1px solid #ddd; padding: 15px; margin: 10px 0;">
+            <h2>{{ post.titulo }}</h2>
+            <p><small>Publicado: {{ post.fecha }}</small></p>
+        </div>
+        {% endfor %}
+        <hr>
+        <a href="/">Inicio</a> |
+        <a href="/sobre_mi/">Sobre Mí</a>
+    </body>
+</html>
