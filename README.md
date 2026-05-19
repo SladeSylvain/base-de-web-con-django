@@ -31,3 +31,88 @@ Tras corregir la URL, el motor de Django no lograba localizar el recurso físico
 
 * **Depuración Eficiente (Troubleshooting):** Ahora puedo interpretar los *tracebacks* de Django de manera autónoma. Identificar la diferencia entre un error de enrutamiento (404) y uno de localización de archivos (`TemplateDoesNotExist`) reduce drásticamente el tiempo de desarrollo.
 * **Preparación para APIs y CRUDs:** Esta base es fundamental para los siguientes módulos del bootcamp. Entender cómo viaja un diccionario de contexto hacia un template me facilitará la integración con Bases de Datos (PostgreSQL/ORMs) y el consumo de endpoints en proyectos Full Stack.
+
+---
+
+# 🐍 Configuración de Proyecto Django
+
+Guía paso a paso para crear y configurar un proyecto Django con una aplicación de blog.
+
+---
+
+## 1. Crear el entorno virtual
+
+```bash
+python -m venv venv
+```
+
+## 2. Activar el entorno virtual (Windows)
+
+```bash
+.\venv\Scripts\activate
+```
+
+## 3. Instalar Django
+
+```bash
+pip install django
+```
+
+## 4. Crear la estructura del proyecto base
+
+> 📁 Se crea la carpeta `config` como directorio principal del proyecto.
+
+```bash
+django-admin startproject config .
+```
+
+## 5. Crear la aplicación del blog
+
+```bash
+python manage.py startapp blog
+```
+
+## 6. Crear la estructura de directorios para las plantillas (Templates)
+
+> 📌 Se usa `mkdir -p` para estructurar el espacio de nombres (**Namespacing**).
+
+```bash
+mkdir -p blog/templates/blog
+```
+
+## 7. Crear los archivos HTML base para las vistas
+
+```bash
+touch blog/templates/blog/inicio.html
+touch blog/templates/blog/sobre_mi.html
+touch blog/templates/blog/posts.html
+touch blog/templates/blog/gatitos.html
+```
+
+## 8. Aplicar las migraciones iniciales a la Base de Datos
+
+```bash
+python manage.py migrate
+```
+
+## 9. Crear el Superusuario administrativo
+
+> 🔐 Permite acceder al panel de control en `/admin`.
+
+```bash
+python manage.py createsuperuser
+```
+
+## 10. Guardar las dependencias instaladas
+
+> ✅ Buena práctica obligatoria para reproducir el entorno.
+
+```bash
+pip freeze > requirements.txt
+```
+
+## 11. Levantar el servidor de desarrollo
+
+```bash
+python manage.py runserver 8000
+```
